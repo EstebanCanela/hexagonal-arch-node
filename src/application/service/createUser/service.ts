@@ -12,7 +12,7 @@ export default class CreateUserService implements CreateUserUseCase {
   ) {}
 
   async execute(_input: CreateUserCommand): Promise<CreateUserResult> {
-    const user = await this.userDatabasePort.GetUser(_input.address);
+    const user = await this.userDatabasePort.getUser(_input.address);
     const userDomain = mapperUserEntityToUserDomain(user);
     return {
       type: 'OWNER',
